@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   post "/" => "microposts#create"
   get "/search" => "microposts#search"
   resources :microposts
+  resources :users
   # Defines the root path route ("/")
   # root "posts#index"
 end
