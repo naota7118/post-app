@@ -1,0 +1,9 @@
+<%= link_to "新規登録", new_user_path %>
+
+<%= form_with model: @micropost do |form| %>
+  <div>
+    <%= form.label :post %>
+    <%= form.text_field :post %>
+  </div>
+  <%= form.submit "Post" %>
+<% end %>
