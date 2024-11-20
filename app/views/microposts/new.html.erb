@@ -1,0 +1,12 @@
+<h1>投稿ページ</h1>
+
+<% flash.each do |message_type, message| %>
+  <div class="alert alert-<%= message_type %>"><%= message %></div>
+<% end %>
+
+<%= form_with(model: @micropost) do |f| %>
+  <%= f.label :content %>
+  <%= f.text_field :content %>
+
+  <%= f.submit "投稿" %>
+<% end %>

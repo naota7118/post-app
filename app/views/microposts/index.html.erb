@@ -1,9 +1,22 @@
-<%= link_to "新規登録", new_user_path %>
+<% if @current_user %>
+  <a><%= "ログイン中ユーザー：#{@current_user.name}" %></a>
+  <%= link_to "ログアウト", logout_path, data: { "turbo-method": :delete } %>
 
-<%= form_with model: @micropost do |form| %>
+<% else %>
+  <%= "ログインしていません" %>
+  <%= link_to "ログイン", login_path %>
+  <%= link_to "新規登録", new_user_path %>
+<% end %>
+
+
+<h2>投稿一覧ページ<h2>
+
+<div><a><%= link_to "投稿作成ページ", new_micropost_path %></a></div>
+
+<% @microposts.each do |post| %>
   <div>
-    <%= form.label :post %>
-    <%= form.text_field :post %>
+    <p><%= post.user.name %></p>
+    <p><%= post.created_at %></p>
+    <p><%= post.content %></p>
   </div>
-  <%= form.submit "Post" %>
 <% end %>
