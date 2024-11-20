@@ -1,1 +1,9 @@
-<%= @micropost.content %>
+<div>
+  <p><%= "投稿者：#{@micropost.user.name}" %></p>
+  <p><%= @micropost.user.created_at %></p>
+  <p><%= @micropost.content %></p>
+</div>
+<% if current_user?(micropost.user) %>
+  <%= link_to "削除", micropost, data: { "turbo-method": delete, turbo_confirm: "You sure?" } %>
+<% end %>
+<button><%= link_to "ホームに戻る", root_path %></button>
