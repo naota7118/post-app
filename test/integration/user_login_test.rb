@@ -32,6 +32,9 @@ class UserLoginTest < ActionDispatch::IntegrationTest
     post login_path, params: { session: { email: @user.email, password: "invalid" }}
     assert_response :unprocessable_entity
     assert_template 'sessions/new'
+    assert flash
+    get root_path
+    assert flash.empty? # flash.empty?=true=フラッシュが空 ならばテストがパスする 望ましい挙動 → 現状falseになる
   end
 
   # test "login with valid information" do

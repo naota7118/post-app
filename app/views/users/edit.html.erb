@@ -1,0 +1,23 @@
+<% provide(:title, "ユーザーを編集") %>
+<h1>ユーザープロフィールの更新</h1>
+
+<div>
+  <div>
+    <%= form_with(model: @user) do |f| %>
+      <%= f.label :name %>
+      <%= f.text_field :name, class: 'form-control' %>
+      
+      <%= f.label :email %>
+      <%= f.email_field :email, class: 'form-control' %>
+      
+      <%= f.label :password %>
+      <%= f.password_field :password, class: 'form-control' %>
+      
+      <%= f.label :password %>
+      <%= f.password_field :password_confirmation, class: 'form-control' %>
+      
+      <%= f.submit '保存する', class: 'form-control' %>
+
+    <% end %>
+  </div>
+</div>
