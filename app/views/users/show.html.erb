@@ -1,3 +1,4 @@
-<%= @user.name %>
-
-<p><%= link_to "ホームへ移動する", root_path %></p>
+<h1>
+  <%= gravatar_for(@user) %>
+  <%= @user.name %>
+</h1>

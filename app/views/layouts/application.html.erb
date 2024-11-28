@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>PostApp</title>
+    <title><%= full_title(yield(:title)) %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta charset="utf-8">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -11,6 +12,15 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div>
+      <% flash.each do |message_type, message| %>
+        <div class="alert alert-<%= message_type %>%>"><%= message %></div>
+      <% end %>
+      <%= render 'layouts/header' %>
+      <div class="container">
+        <%= yield %>
+        <%= render 'layouts/footer' %>
+      </div>
+    </div>
   </body>
 </html>
