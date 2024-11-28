@@ -1,6 +1,10 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+@mixin bgcolor-aqua($value: aqua) {
+  background-color: $value;
+}
+
 /* universal */
 
 body {
@@ -48,6 +52,7 @@ h2 {
 p {
   font-size: 1.1em;
   line-height: 1.7em;
+  @include bgcolor-aqua;
 }
 
 /* footer */
@@ -57,26 +62,24 @@ footer {
   padding-top: 5px;
   border-top: 1px solid #eaeaea;
   color: #777;
-}
-
-footer a {
-  color: #555;
-}
-
-footer a:hover {
-  color: #222;
-}
-
-footer small {
-  float: left;
-}
-
-footer ul {
-  float: right;
-  list-style: none;
-}
-
-footer ul li {
-  float: left;
-  margin-left: 15px;
+  & a {
+    color: #555;
+    &:hover {
+      color: #222;
+    }
+  }
+  & small {
+    float: left;
+  }
+  & ul {
+    float: right;
+    list-style: none;
+    & li {
+      float: left;
+      margin-left: 15px;
+    }
+  }
+  &.footer {
+    @include bgcolor-aqua(pink);
+  }
 }

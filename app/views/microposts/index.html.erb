@@ -9,14 +9,16 @@
 <% end %>
 
 
-<h2>投稿一覧ページ<h2>
+<p>投稿一覧ページ<p>
 
-<div><a><%= link_to "投稿作成ページ", new_micropost_path %></a></div>
+<a><%= link_to "投稿作成ページ", new_micropost_path %></a>
 
-<% @microposts.each do |post| %>
-  <div>
-    <p><%= post.user.name %></p>
-    <p><%= post.created_at %></p>
-    <p><%= post.content %></p>
-  </div>
-<% end %>
+<div>
+  <% @microposts.each do |post| %>
+    <div>
+      <p><%= post.user.name %></p>
+      <p><%= post.created_at %></p>
+      <p><%= post.content %></p>
+    </div>
+  <% end %>
+</div>
